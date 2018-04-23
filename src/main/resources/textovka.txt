@@ -1,0 +1,17 @@
+01.roomName		IT kancl
+01.roomDesc		malı open-space
+01.roomEqip		šuplík,--,klíè;skøíò,klíè,klávesnice;poèítaè,klávesnice,--
+01.roomExit		02
+
+02.roomName		Chodba
+02.roomDesc		protáhlá, prázdná
+02.roomExit		01,03,04
+
+03.roomName		Zasedaèka
+03.roomDesc		Prosklená s oknem ve støeše
+03.roomExit		02
+
+04.roomName		Kuchyòka
+04.roomDesc		skøíòka a kávovar
+04.roomEqip		kávovar,hrneèek,káva;skøíò,--,hrneèek
+04.roomExit		02
