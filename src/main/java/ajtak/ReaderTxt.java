@@ -25,29 +25,6 @@ public class ReaderTxt {
         this.path = path;
         this.roomNo = roomNo;
     }
-/*    
-    public String readAll() throws FileNotFoundException, IOException{
-        String content = null;
-        FileReader reader = null;
-        File file = new File (path);
-        
-        try {
-            reader = new FileReader(file);
-            char[] chars = new char[(int) file.length()];
-            reader.read(chars);
-            content = new String(chars);
-            reader.close();
-        } catch (IOException ex) {
-            Logger.getLogger(ReaderTxt.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            if (reader != null){
-                reader.close();
-            }
-        }
-        return content;
-        
-    }
-*/    
     public String readLines(String param) throws IOException{
         Class cls = ReaderTxt.class;
         ClassLoader cLoader = cls.getClassLoader();
@@ -67,8 +44,7 @@ public class ReaderTxt {
                     }
                 } else {
                     if (line.startsWith(roomNo+"."+param)){
-                       stringBuffer.append(line.replace(roomNo+"."+param,"").trim());
-                       //stringBuffer.append ("\n");                     
+                       stringBuffer.append(line.replace(roomNo+"."+param,"").trim());                   
                     }
                 }
             }

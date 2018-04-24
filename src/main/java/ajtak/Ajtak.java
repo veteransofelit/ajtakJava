@@ -21,18 +21,28 @@ public class Ajtak {
     public static void main(String[] args) throws IOException {
         ReaderTxt mistnost = new ReaderTxt("textovka.txt","01");
         Scanner sc = new Scanner (System.in);
-        String exit = "a";
+        String exit = "01";
         
-        while (!exit.equals("domu")){
+        while (!exit.equals("00")){
             System.out.println("Ahoj právě jsi v místnosti " + mistnost.readLines("roomName"));
-            System.out.println("a můžeš jít do místností " + mistnost.readLines("roomExit") + " a nebo domu");
+            System.out.println("a můžeš jít do místností:");
+            String[] rooms = mistnost.readLines("roomExit").split(",");
+            //int counter = rooms.length;
+            for (String room : rooms ){
+                mistnost.setRoomNo(room);
+                System.out.println("  (" + room + ") " + mistnost.readLines("roomName"));
+                mistnost.setRoomNo(exit);
+            }
+            System.out.println("  (00) domu");
+            //System.out.println(mistnost.readLines("roomEqip"));
             System.out.println("Kam cheš jít?");
             exit = sc.nextLine();
             if (mistnost.readLines("roomExit").matches("(.*)" + exit + "(.*)")){
                 mistnost.setRoomNo(exit);
-            } else if (exit.equalsIgnoreCase("domu")){
+            } else if (exit.equalsIgnoreCase("00")){
                 System.out.println("Rozhodl jsi se jit domu...");
             } else {
+                System.out.println("");
                 System.out.println("Nepoznal jsem kam chceš jít zkus to znovu");
             }         
             System.out.println("");
