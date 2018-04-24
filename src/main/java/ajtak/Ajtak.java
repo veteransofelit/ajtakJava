@@ -6,6 +6,7 @@
 package ajtak;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -19,35 +20,39 @@ public class Ajtak {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        ReaderTxt mistnost = new ReaderTxt("textovka.txt","01");
+        ReaderTxt reader = new ReaderTxt("textovka.txt");
+        HashMap<String, Room> map = reader.getMap();
         Scanner sc = new Scanner (System.in);
-        String exit = "01";
+        Room room = map.get("01");
         
-        while (!exit.equals("00")){
-            System.out.println("Ahoj právě jsi v místnosti " + mistnost.readLines("roomName"));
-            System.out.println("a můžeš jít do místností:");
-            String[] rooms = mistnost.readLines("roomExit").split(",");
-            //int counter = rooms.length;
-            for (String room : rooms ){
-                mistnost.setRoomNo(room);
-                System.out.println("  (" + room + ") " + mistnost.readLines("roomName"));
-                mistnost.setRoomNo(exit);
-            }
-            System.out.println("  (00) domu");
-            //System.out.println(mistnost.readLines("roomEqip"));
+        while (!room.getId().equals("00")){
+            System.out.println("Ahoj právě jsi v místnosti " + room.getName());
+            System.out.println(room.getDescription().replace("\\n", "\n"));
+            System.out.println("\nMůžeš jít do místností:");
+            String[] rooms = room.getExit().split(",");
+
+            System.out.println("  (00) Domů");
+            for (String roomStr : rooms) {
+                Room r = map.get(roomStr);
+                System.out.println("  (" + r.getId() + ") " + r.getName());
+            }            
+
             System.out.println("Kam cheš jít?");
-            exit = sc.nextLine();
-            if (mistnost.readLines("roomExit").matches("(.*)" + exit + "(.*)")){
-                mistnost.setRoomNo(exit);
-            } else if (exit.equalsIgnoreCase("00")){
+            System.out.print(">");
+            String exit = sc.nextLine();
+            if (exit.equalsIgnoreCase("00")){
                 System.out.println("Rozhodl jsi se jit domu...");
+                room = new Room();
+                room.setId("00");
+            } else
+            if (room.getExit().matches("(.*)" + exit + "(.*)")){
+                room = map.get(exit); 
             } else {
                 System.out.println("");
                 System.out.println("Nepoznal jsem kam chceš jít zkus to znovu");
             }         
             System.out.println("");
         }
-        
         System.out.println("Užij si den");
 
     }

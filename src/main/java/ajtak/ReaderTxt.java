@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,37 +20,63 @@ import java.util.logging.Logger;
 public class ReaderTxt {
     
     private String path;
-    private String roomNo;
     
-    public ReaderTxt(String path,String roomNo){
+    public ReaderTxt(String path){
         this.path = path;
-        this.roomNo = roomNo;
     }
-    public String readLines(String param) throws IOException{
+    
+    public HashMap<String, Room> getMap() throws IOException {
+        HashMap<String, Room> result = new HashMap<String, Room>();
         Class cls = ReaderTxt.class;
         ClassLoader cLoader = cls.getClassLoader();
-        String contentLines = null;
         InputStreamReader reader = null;
         
         try {
             reader = new InputStreamReader(cLoader.getResourceAsStream(path));
             BufferedReader bufferedReader = new BufferedReader(reader);
-            StringBuffer stringBuffer = new StringBuffer();
-            String line;
+            String line, tmp;
+            String arr[];
+            String roomNo = "";
+            Room r = null;
             while ((line = bufferedReader.readLine()) != null){
-                if (param.equals("all")){
-                    if (line.startsWith(roomNo)){
-                       stringBuffer.append(line);
-                       stringBuffer.append ("\n");                    
+                if (line.length() == 0)
+                    continue;
+                
+                tmp = line.substring(0, 2);
+                if (!tmp.equals(roomNo)) {
+                    if (r != null) {
+                        result.put(roomNo, r);
                     }
-                } else {
-                    if (line.startsWith(roomNo+"."+param)){
-                       stringBuffer.append(line.replace(roomNo+"."+param,"").trim());                   
-                    }
+                    roomNo = tmp;
+                    r = new Room();
+                    r.setId(roomNo);
+                }
+                
+                tmp = line.substring(3);
+                
+                arr = tmp.split("\t\t");
+                if (arr.length < 2)
+                        continue;
+                arr[0] = arr[0].trim();
+                arr[1] = arr[1].trim();
+                
+                if (arr[0].equals("roomName")) {
+                    r.setName(arr[1]);
+                } else
+                if (arr[0].equals("roomDesc")) {
+                    r.setDescription(arr[1]);
+                } else
+                if (arr[0].equals("roomEqip")) {
+                    r.setEquipment(arr[1]);
+                } else
+                if (arr[0].equals("roomExit")) {
+                    r.setExit(arr[1]);
                 }
             }
-            reader.close();
-            contentLines = stringBuffer.toString();
+            
+            if (r != null) {
+                result.put(roomNo, r);
+            }
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ReaderTxt.class.getName()).log(Level.SEVERE, null, ex);
@@ -58,15 +85,6 @@ public class ReaderTxt {
                 reader.close();
             }
         }
-        return contentLines;
+        return result;
     }
-
-    /**
-     * @param roomNo the roomNo to set
-     */
-    public void setRoomNo(String roomNo) {
-        this.roomNo = roomNo;
-    }
-            
-    
 }

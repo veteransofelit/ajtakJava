@@ -1,17 +1,22 @@
 01.roomName		IT kancl
-01.roomDesc		malý open-space
+01.roomDesc		Mouseman sedí u poèítaèe a snídá bagetu, pùlku kuøete a hroudu tvarohu.\nErlesh má v uších sluchátka od mobilu, pod stolem zuté boty a zakládá už tøetí issue do youtracku. Èas od èasu tiše pronese "amatéøi.."
 01.roomEqip		šuplík,--,klíè;skøíò,klíè,klávesnice;poèítaè,klávesnice,--
 01.roomExit		02
 
 02.roomName		Chodba
-02.roomDesc		protáhlá, prázdná
-02.roomExit		01,03,04
+02.roomDesc		Na hydrantu si nìkdo zapomnìl doklady k zaúètování. V køesle sedí Michal Sychra a telefonuje.
+02.roomExit		01,03,04,05
 
 03.roomName		Zasedaèka
-03.roomDesc		Prosklená s oknem ve støeše
+03.roomDesc		Na tabuli je seznam všech issue stocksharingu (o kterých víme a které se tam vejdou).
 03.roomExit		02
 
 04.roomName		Kuchyòka
-04.roomDesc		skøíòka a kávovar
+04.roomDesc		U kávovaru pstává L3kant s Michalem a debatují o japonských samurajích.
 04.roomEqip		kávovar,hrneèek,káva;skøíò,--,hrneèek
 04.roomExit		02
+
+05.roomName		Záchod
+05.roomDesc		Z kabinky se ozývá: "No to je dost, že mi voláš..", žbluòk, "Už jsem ti chtìl volat já..", žbluòk
+05.roomEqip		papír
+05.roomExit		02
