@@ -1,22 +1,22 @@
-01.roomName		IT kancl
-01.roomDesc		Mouseman sedí u poèítaèe a snídá bagetu, pùlku kuøete a hroudu tvarohu.\nErlesh má v uších sluchátka od mobilu, pod stolem zuté boty a zakládá u tøetí issue do youtracku. Èas od èasu tiše pronese "amatéøi.."
-01.roomEqip		šuplík,--,klíè;skøíò,klíè,klávesnice;poèítaè,klávesnice,--
+ï»¿01.roomName		IT kancl
+01.roomDesc		Mouseman sedÃ­ u poÄÃ­taÄe a snÃ­dÃ¡ bagetu, pÅ¯lku kuÅ™ete a hroudu tvarohu.\nErlesh mÃ¡ v uÅ¡Ã­ch sluchÃ¡tka od mobilu, pod stolem zutÃ© boty a zaklÃ¡dÃ¡ uÅ¾ tÅ™etÃ­ issue do youtracku. ÄŒas od Äasu tiÅ¡e pronese "amatÃ©Å™i.."
+01.roomEqip		Å¡uplÃ­k,--,klÃ­Ä;skÅ™Ã­Åˆ,klÃ­Ä,klÃ¡vesnice;poÄÃ­taÄ,klÃ¡vesnice,--
 01.roomExit		02
 
 02.roomName		Chodba
-02.roomDesc		Na hydrantu si nìkdo zapomnìl doklady k zaúètování. V køesle sedí Michal Sychra a telefonuje.
+02.roomDesc		Na hydrantu si nÄ›kdo zapomnÄ›l doklady k zaÃºÄtovÃ¡nÃ­. V kÅ™esle sedÃ­ Michal Sychra a telefonuje.
 02.roomExit		01,03,04,05
 
-03.roomName		Zasedaèka
-03.roomDesc		Na tabuli je seznam všech issue stocksharingu (o kterıch víme a které se tam vejdou).
+03.roomName		ZasedaÄka
+03.roomDesc		Na tabuli je seznam vÅ¡ech issue stocksharingu (o kterÃ½ch vÃ­me a kterÃ© se tam vejdou).
 03.roomExit		02
 
-04.roomName		Kuchyòka
-04.roomDesc		U kávovaru pstává L3kant s Michalem a debatují o japonskıch samurajích.
-04.roomEqip		kávovar,hrneèek,káva;skøíò,--,hrneèek
+04.roomName		KuchyÅˆka
+04.roomDesc		U kÃ¡vovaru pstÃ¡vÃ¡ L3kant s Michalem a debatujÃ­ o japonskÃ½ch samurajÃ­ch.
+04.roomEqip		kÃ¡vovar,hrneÄek,kÃ¡va;skÅ™Ã­Åˆ,--,hrneÄek
 04.roomExit		02
 
-05.roomName		Záchod
-05.roomDesc		Z kabinky se ozıvá: "No to je dost, e mi voláš..", bluòk, "U jsem ti chtìl volat já..", bluòk
-05.roomEqip		papír
+05.roomName		ZÃ¡chod
+05.roomDesc		Z kabinky se ozÃ½vÃ¡: "No to je dost, Å¾e mi volÃ¡Å¡..", Å¾bluÅˆk, "UÅ¾ jsem ti chtÄ›l volat jÃ¡..", Å¾bluÅˆk
+05.roomEqip		papÃ­r
 05.roomExit		02

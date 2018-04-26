@@ -32,7 +32,7 @@ public class ReaderTxt {
         InputStreamReader reader = null;
         
         try {
-            reader = new InputStreamReader(cLoader.getResourceAsStream(path));
+            reader = new InputStreamReader(cLoader.getResourceAsStream(path),"UTF-8");
             BufferedReader bufferedReader = new BufferedReader(reader);
             String line, tmp;
             String arr[];
