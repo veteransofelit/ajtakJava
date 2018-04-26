@@ -8,6 +8,7 @@ package ajtak;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -19,20 +20,13 @@ import java.util.logging.Logger;
  */
 public class ReaderTxt {
     
-    private String path;
     
-    public ReaderTxt(String path){
-        this.path = path;
-    }
-    
-    public HashMap<String, Room> getMap() throws IOException {
+    public static HashMap<String, Room> getMap(InputStream is) throws IOException {
         HashMap<String, Room> result = new HashMap<String, Room>();
-        Class cls = ReaderTxt.class;
-        ClassLoader cLoader = cls.getClassLoader();
         InputStreamReader reader = null;
         
         try {
-            reader = new InputStreamReader(cLoader.getResourceAsStream(path),"UTF-8");
+            reader = new InputStreamReader(is,"UTF-8");
             BufferedReader bufferedReader = new BufferedReader(reader);
             String line, tmp;
             String arr[];

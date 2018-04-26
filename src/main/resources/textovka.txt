@@ -1,4 +1,4 @@
-﻿01.roomName		IT kancl
+01.roomName		IT kancl
 01.roomDesc		Mouseman sedí u počítače a snídá bagetu, půlku kuřete a hroudu tvarohu.\nErlesh má v uších sluchátka od mobilu, pod stolem zuté boty a zakládá už třetí issue do youtracku. Čas od času tiše pronese "amatéři.."
 01.roomEqip		šuplík,--,klíč;skříň,klíč,klávesnice;počítač,klávesnice,--
 01.roomExit		02

@@ -6,6 +6,7 @@
 package ajtak;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -20,8 +21,12 @@ public class Ajtak {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        ReaderTxt reader = new ReaderTxt("textovka.txt");
-        HashMap<String, Room> map = reader.getMap();
+        Class cls = Ajtak.class;
+        ClassLoader cLoader = cls.getClassLoader();
+        InputStream is = cLoader.getResourceAsStream("textovka.txt");
+        HashMap<String, Room> map = ReaderTxt.getMap(is);
+        is.close();
+        
         Scanner sc = new Scanner (System.in);
         Room room = map.get("01");
         

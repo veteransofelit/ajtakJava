@@ -1,0 +1,4 @@
+01.roomName		Name
+01.roomDesc		Description
+01.roomEqip		Equipment
+01.roomExit		00
